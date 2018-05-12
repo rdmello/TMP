@@ -65,6 +65,25 @@ int main(int argc, char** argv)
   assert(i2 == *f2);               // verify correct deref behavior after swap
   std::cout << "uint64_t values swapped succesfully" << std::endl;
 
+  // try swapping a pointer with an iterator
+  uint64_t* p1 = &i1;
+  // rd::ch2::iter_swap0(p1, f2);     // Compile-time error, no member value_type
+  
+  rd::ch2::iter_swap1(p1, f2);
+  assert(i1 == 32);                // verify value swapped
+  assert(i2 == 45);                // verify value swapped
+  assert(i1 == *f1);               // verify correct deref behavior after swap
+  assert(i2 == *f2);               // verify correct deref behavior after swap
+  std::cout << "uint64_t values swapped succesfully (again)" << std::endl;
+
+  rd::ch2::iter_swap0(f1, f2);
+  assert(i1 == 45);                // verify value swapped
+  assert(i2 == 32);                // verify value swapped
+  assert(i1 == *f1);               // verify correct deref behavior after swap
+  assert(i2 == *f2);               // verify correct deref behavior after swap
+  std::cout << "uint64_t values swapped succesfully (yet again)" << std::endl;
+
+
 
 
   return 0;
