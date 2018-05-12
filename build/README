@@ -1,0 +1,5 @@
+
+Empty directory for builds
+
+Running 'make' in the parent directory will generate build files here
+
